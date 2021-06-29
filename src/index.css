@@ -13,3 +13,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+@layer base {
+  @font-face {
+    font-family: 'DancingScript-Bold';
+    src: url('./fonts/DancingScript-Bold.ttf');
+  }
+
+  @font-face {
+    font-family: 'Ubuntu-LightItalic';
+    src: url('./fonts/Ubuntu-LightItalic.ttf');
+  }
+}

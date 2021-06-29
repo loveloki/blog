@@ -1,9 +1,14 @@
+import Header from '../Header'
+import List from '../List'
 import './index.css'
 
 function App() {
   return (
-    <div className="h-screen grid place-content-center">
-      <span className="text-3xl hover:text-green-200"> Xleine&lsquo;s Blog</span>
+    <div className="h-screen flex flex-col">
+      <Header className="h-16" />
+      <main className="flex-1 max-w-7xl">
+        <List />
+      </main>
     </div>
   )
 }
