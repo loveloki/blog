@@ -25,3 +25,13 @@ code {
     src: url('./fonts/Ubuntu-LightItalic.ttf');
   }
 }
+
+:root {
+  --color-white: #f8f8f5;
+  --color-cyan: #bae8e8;
+  --color-dark-cyan: #009688;
+  --color-dark-blue: #0300b3;
+  --color-purple: #b7adcf;
+  --color-gray: #535657;
+  --color-black: #1f1f1f;
+}
