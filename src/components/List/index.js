@@ -23,13 +23,13 @@ function List() {
         {list.map(({ image, title, description, params }) => (
           <li className="flex w-full h-32 mt-2" key={title}>
             <aside className="w-32 h-32">
-              <img className="h-full w-full object-cover" src={image} alt={title} />
+              <img className="h-full w-full p-2 object-cover" src={image} alt={title} />
             </aside>
-            <article className="flex-1 pl-1">
+            <article className="flex-1 pl-1 pt-1">
               <Link to={articlePath(params)}>
                 <span className="text-2xl text-green-400 font-bold cursor-pointer">{title}</span>
               </Link>
-              <p>{description}</p>
+              <p className="mt-2 max-line-3-ellipsis">{description}</p>
             </article>
           </li>
         ))}

@@ -35,28 +35,23 @@
 
 .markdown-body blockquote {
   background: var(--color-cyan);
-  border-left-color: var(--color-dark-cyan);
-  border-left-width: 9px;
-  border-left-style: solid;
-  padding: 20px 45px 20px 26px;
-  margin-bottom: 30px;
-  margin-top: 20px;
-  margin-left: -30px;
-  margin-right: -30px;
+  border-left: 0.5rem solid var(--color-dark-cyan);
+  padding: 1rem 3rem 1rem 1.75rem;
+  margin: 1rem -2rem;
 }
 
 .markdown-body pre {
   color: #fff;
   background: #282c34;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   tab-size: 2ch;
-  font-size: 14px;
-  padding: 20px;
-  margin: 20px;
+  font-size: 0.875rem /* 14/16 */;
+  padding: 1.25rem /* 20/16 */;
+  margin: 1.25rem /* 20/16 */;
 }
 
 .markdown-body :not(pre) > code {
-  background: var(--color-blue);
+  background: var(--color-cyan);
   color: #1a1a1a;
   border-radius: 4px;
   padding: 0 4px;

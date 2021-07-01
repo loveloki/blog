@@ -12,7 +12,7 @@ function Article(props) {
       .then((data) => setMarkdownContent(data.data))
   }, [])
 
-  return <ReactMarkdown className="markdown-body my-4">{markdownContent}</ReactMarkdown>
+  return <ReactMarkdown className="markdown-body">{markdownContent}</ReactMarkdown>
 }
 
 export default Article
