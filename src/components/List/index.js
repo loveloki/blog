@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './index.css'
 
-function List(props) {
-  const { handleClickTitle } = props
+function List() {
   const [list, setList] = useState([])
 
   useEffect(() => {
@@ -26,12 +26,9 @@ function List(props) {
               <img className="h-full w-full object-cover" src={image} alt={title} />
             </aside>
             <article className="flex-1 pl-1">
-              <span
-                className="text-2xl text-green-400 font-bold cursor-pointer"
-                onClick={() => handleClickTitle(params)}
-              >
-                {title}
-              </span>
+              <Link to={articlePath(params)}>
+                <span className="text-2xl text-green-400 font-bold cursor-pointer">{title}</span>
+              </Link>
               <p>{description}</p>
             </article>
           </li>
@@ -39,6 +36,12 @@ function List(props) {
       </ul>
     </article>
   )
+}
+
+function articlePath(params) {
+  const { year, month, title } = params
+
+  return `article/${year}/${month}/${title}`
 }
 
 export default List

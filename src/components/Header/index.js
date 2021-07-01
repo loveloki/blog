@@ -1,11 +1,17 @@
+import { Link, useLocation } from 'react-router-dom'
 import './index.css'
+
 function Header(props) {
+  const location = useLocation()
+
   return (
-    <header className={props.className + ' text-center'}>
-      <span className="text-4xl hover:text-green-200">
-        Xleine&lsquo;s
-        <sup className="">Blog</sup>
-      </span>
+    <header className={props.className + ' flex justify-center items-center'}>
+      <Link to="/" replace={location.pathname === '/'}>
+        <span className="text-4xl cursor-pointer">
+          Xleine&lsquo;s
+          <sup className="">Blog</sup>
+        </span>
+      </Link>
     </header>
   )
 }
