@@ -8,5 +8,10 @@
   },
   "keywords": [],
   "author": "Xleine",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.5.2",
+    "colors": "^1.4.0",
+    "dayjs": "^1.10.6"
+  }
 }
