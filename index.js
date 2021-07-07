@@ -2,6 +2,12 @@ const chokidar = require('chokidar')
 const { markDir, TIPS, getDate } = require('./utils')
 const fs = require('fs')
 
+//初始化目录
+const buildPath = './build'
+if (!fs.existsSync(buildPath)) {
+  markDir(buildPath)
+}
+
 // 一篇文章需要有
 // 内容
 // 英文文件名
@@ -67,4 +73,37 @@ function dealWithTempFile(path) {
 }
 
 function buildArticle() {
+  console.log(TIPS.INFO, '开始生成')
+
+  const { year, month } = getDate()
+
+  // 移动文章
+  const movePath = `${buildPath}/notes/${year}/${month}`
+  console.log(TIPS.INFO, '路径为: ', movePath)
+
+  if (!fs.existsSync(movePath)) {
+    markDir(movePath)
+  }
+
+  // 移动文件
+  fs.copyFileSync('./temp/article.md', `${movePath}/${name}.md`)
+
+  // 生成首页目录
+  const item = {
+    title,
+    name,
+    description,
+    year,
+    month,
+  }
+
+  pageCatalog.push(item)
+
+  try {
+    fs.writeFileSync('./build/pageCatalog.json', JSON.stringify(pageCatalog))
+
+    console.log(TIPS.FINISH, '新添加的文章为：', item)
+  } catch (error) {
+    console.log(TIPS.ERROR, error)
+  }
 }
