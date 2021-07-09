@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
+import { useLocation } from 'react-router-dom'
 import './index.css'
 
-function Article(props) {
-  const { year, month, title } = props
+function Article() {
   const [markdownContent, setMarkdownContent] = useState(null)
+  const location = useLocation()
+  const [, , year, month, name] = location.pathname.split('/')
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:4523/mock/395561/article/${year}/${month}/${title}`)
-      .then((data) => data.json())
-      .then((data) => setMarkdownContent(data.data))
+    fetch(`${process.env.PUBLIC_URL}/article/${year}/${month}/${name}.md`)
+      .then((data) => data.text())
+      .then((data) => setMarkdownContent(data))
   }, [])
 
   return <ReactMarkdown className="markdown-body">{markdownContent}</ReactMarkdown>
