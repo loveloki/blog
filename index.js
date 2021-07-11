@@ -115,7 +115,17 @@ function buildArticle() {
   try {
     fs.writeFileSync('./build/catalog.json', JSON.stringify(catalog))
 
-    console.log(TIPS.FINISH, '新添加的文章为：', item)
+    console.log(TIPS.INFO, '新添加的文章为：', item)
+
+    // 清除 temp 文件夹
+    fs.readdirSync('./temp').forEach((path) => fs.rmSync(`./temp/${path}`, { recursive: true }))
+    // 重置变量
+    isHaveMarkdownArticle = null
+    name = null
+    title = null
+    description = null
+
+    console.log(TIPS.FINISH, '完成，清空临时文件夹')
   } catch (error) {
     console.log(TIPS.ERROR, error)
   }

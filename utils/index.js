@@ -24,8 +24,6 @@ function markDir(path) {
   if (index !== -1) {
     const parentPath = path.slice(0, index)
 
-    // console.log('parent', parentPath, path)
-
     if (!fs.existsSync(parentPath)) {
       markDir(parentPath)
     }
