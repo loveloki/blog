@@ -13,63 +13,76 @@ if (!fs.existsSync(buildPath)) {
 // 英文文件名
 // 中文标题
 // 简介
-let markdownArticle = null
+let isHaveMarkdownArticle = null
 let name = null
 let title = null
 let description = null
 
 // 首页的文章列表
-const pageCatalog = []
+const catalog = []
 
 // 添加文件在 temp 文件夹
 // 标题和简介配置在 cfg 文件中
 // 文章直接放进来
+
+// 监听 cfg 文件
 chokidar
-  .watch('./temp', { ignored: /(.*)\.(?!(md|cfg))/ })
+  .watch('./temp/index.cfg')
   .on('add', (path) => {
-    dealWithTempFile(path)
+    dealWithCfgFile(path)
   })
   .on('change', (path) => {
-    dealWithTempFile(path)
+    dealWithCfgFile(path)
+  })
+
+//监听 markdown 文件
+chokidar
+  .watch('./temp/index.md')
+  .on('add', (path) => {
+    dealWithMarkDownFile()
+  })
+  .on('change', (path) => {
+    dealWithMarkDownFile()
   })
 
 /**
- * 处理 temp 文件夹文件变动
+ * 处理 cfg 文件变动
  **/
-function dealWithTempFile(path) {
+function dealWithCfgFile(path) {
   const content = fs.readFileSync(path, { encoding: 'utf8' })
+  let cfg
 
-  // 如果是配置文件，读取
-  if (path.split('.')[1] === 'cfg') {
-    let cfg
+  try {
+    cfg = JSON.parse(content)
+  } catch (error) {}
 
-    try {
-      cfg = JSON.parse(content)
-    } catch (error) {}
+  if (!cfg || !cfg.title || !cfg.description || !cfg.name) {
+    return
+  }
 
-    if (!cfg || !cfg.title || !cfg.description || !cfg.name) {
-      return
-    }
+  // 读取标题和简介
+  title = cfg.title
+  name = cfg.name
+  description = cfg.description
 
-    // 读取标题和简介
-    title = cfg.title
-    name = cfg.name
-    description = cfg.description
-
-    // 存在文章则去生成
-    if (markdownArticle) {
-      buildArticle()
-    }
-  } else {
-    // 否则是文章
-    // 如果标题和简介不存在
-    if (!title || !description) {
-      console.log('没有标题和简介，不能生成')
-      return
-    }
-
+  // 存在文章则去生成
+  if (isHaveMarkdownArticle) {
     buildArticle()
   }
+}
+/**
+ * 处理 md 文件变动
+ **/
+function dealWithMarkDownFile() {
+  isHaveMarkdownArticle = true
+
+  // 如果标题和简介不存在
+  if (!title || !description || !name) {
+    console.log(TIPS.INFO, '没有标题和简介，不能生成')
+    return
+  }
+
+  buildArticle()
 }
 
 function buildArticle() {
@@ -78,7 +91,7 @@ function buildArticle() {
   const { year, month } = getDate()
 
   // 移动文章
-  const movePath = `${buildPath}/notes/${year}/${month}`
+  const movePath = `${buildPath}/article/${year}/${month}`
   console.log(TIPS.INFO, '路径为: ', movePath)
 
   if (!fs.existsSync(movePath)) {
@@ -86,7 +99,7 @@ function buildArticle() {
   }
 
   // 移动文件
-  fs.copyFileSync('./temp/article.md', `${movePath}/${name}.md`)
+  fs.copyFileSync('./temp/index.md', `${movePath}/${name}.md`)
 
   // 生成首页目录
   const item = {
@@ -97,10 +110,10 @@ function buildArticle() {
     month,
   }
 
-  pageCatalog.push(item)
+  catalog.push(item)
 
   try {
-    fs.writeFileSync('./build/pageCatalog.json', JSON.stringify(pageCatalog))
+    fs.writeFileSync('./build/catalog.json', JSON.stringify(catalog))
 
     console.log(TIPS.FINISH, '新添加的文章为：', item)
   } catch (error) {
