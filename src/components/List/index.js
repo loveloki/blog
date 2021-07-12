@@ -6,7 +6,7 @@ function List() {
   const [list, setList] = useState([])
 
   useEffect(() => {
-    fetch(`${process.env.PUBLIC_URL}/pageCatalog.json`)
+    fetch(`${process.env.PUBLIC_URL}/catalog.json`)
       .then((data) => data.json())
       .then((arr) => setList(arr))
   }, [])
