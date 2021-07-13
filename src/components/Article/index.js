@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { useLocation } from 'react-router-dom'
+import slug from 'remark-slug'
 import useCatalog from '../../hooks/catalog'
 import useDocumentTitle from '../../hooks/document-title'
 import './index.css'
-
 function Article() {
   const [markdownContent, setMarkdownContent] = useState(null)
   const location = useLocation()
@@ -20,7 +20,11 @@ function Article() {
       .then((data) => setMarkdownContent(data))
   }, [year, month, name])
 
-  return <ReactMarkdown className="markdown-body">{markdownContent}</ReactMarkdown>
+  return (
+    <ReactMarkdown className="markdown-body" remarkPlugins={[slug]}>
+      {markdownContent}
+    </ReactMarkdown>
+  )
 }
 
 export default Article
