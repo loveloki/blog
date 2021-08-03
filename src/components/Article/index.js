@@ -24,7 +24,7 @@ function Article() {
 
   return (
     <>
-      <aside className="absolute h-full transform -translate-x-full w-80 -left-3">
+      <aside className="relative pl-full">
         <Nav markdownContent={markdownContent} />
       </aside>
       <ReactMarkdown className="markdown-body" remarkPlugins={[slug]}>

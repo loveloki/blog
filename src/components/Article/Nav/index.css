@@ -1,0 +1,7 @@
+.active {
+  background-color: #e6e6e6;
+}
+
+nav li:hover {
+  background-color: #f7e0e0;
+}

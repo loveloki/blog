@@ -1,0 +1,16 @@
+[
+  {
+    "title": "博客搭建步骤",
+    "name": "blog-init-step",
+    "description": "博客搭建的思路、设计和步骤。",
+    "year": "2021",
+    "month": "07"
+  },
+  {
+    "title": "基于原型的面向对象的思考",
+    "name": "thinking-prototype-based",
+    "description": "原型机制和经典的面向对象语言基于累类的继承机制是不同的，本文将讨论在 JavaScript 中原型的表现，以及原型链等相关内容",
+    "year": "2021",
+    "month": "07"
+  }
+]
