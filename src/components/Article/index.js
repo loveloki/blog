@@ -5,6 +5,8 @@ import slug from 'remark-slug'
 import useCatalog from '../../hooks/catalog'
 import useDocumentTitle from '../../hooks/document-title'
 import './index.css'
+import Nav from './Nav'
+
 function Article() {
   const [markdownContent, setMarkdownContent] = useState(null)
   const location = useLocation()
@@ -21,9 +23,14 @@ function Article() {
   }, [year, month, name])
 
   return (
-    <ReactMarkdown className="markdown-body" remarkPlugins={[slug]}>
-      {markdownContent}
-    </ReactMarkdown>
+    <>
+      <aside className="relative pl-full">
+        <Nav markdownContent={markdownContent} />
+      </aside>
+      <ReactMarkdown className="markdown-body" remarkPlugins={[slug]}>
+        {markdownContent}
+      </ReactMarkdown>
+    </>
   )
 }
 
