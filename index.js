@@ -3,9 +3,15 @@ const { markDir, TIPS, getDate } = require('./utils')
 const fs = require('fs')
 
 //初始化目录
-const buildPath = './build'
+const buildPath = './public'
+const tempPath = './temp'
+
 if (!fs.existsSync(buildPath)) {
   markDir(buildPath)
+}
+
+if (!fs.existsSync(tempPath)) {
+  markDir(tempPath)
 }
 
 // 一篇文章需要有
@@ -20,7 +26,7 @@ let description = null
 
 // 首页的文章列表
 
-const oldCatalog = fs.readFileSync('./build/catalog.json')
+const oldCatalog = fs.readFileSync(`${buildPath}/catalog.json`)
 const catalog = JSON.parse(oldCatalog.toString()) || []
 
 // 添加文件在 temp 文件夹
@@ -29,7 +35,7 @@ const catalog = JSON.parse(oldCatalog.toString()) || []
 
 // 监听 cfg 文件
 chokidar
-  .watch('./temp/index.cfg')
+  .watch(`${tempPath}/index.cfg`)
   .on('add', (path) => {
     dealWithCfgFile(path)
   })
@@ -39,7 +45,7 @@ chokidar
 
 //监听 markdown 文件
 chokidar
-  .watch('./temp/index.md')
+  .watch(`${tempPath}/index.md`)
   .on('add', (path) => {
     dealWithMarkDownFile()
   })
@@ -101,7 +107,7 @@ function buildArticle() {
   }
 
   // 移动文件
-  fs.copyFileSync('./temp/index.md', `${movePath}/${name}.md`)
+  fs.copyFileSync(`${tempPath}/index.md`, `${movePath}/${name}.md`)
 
   // 生成首页目录
   const item = {
@@ -115,12 +121,12 @@ function buildArticle() {
   catalog.unshift(item)
 
   try {
-    fs.writeFileSync('./build/catalog.json', JSON.stringify(catalog))
+    fs.writeFileSync(`${buildPath}/catalog.json`, JSON.stringify(catalog))
 
     console.log(TIPS.INFO, '新添加的文章为：', item)
 
     // 清除 temp 文件夹
-    fs.readdirSync('./temp').forEach((path) => fs.rmSync(`./temp/${path}`, { recursive: true }))
+    fs.readdirSync(tempPath).forEach((path) => fs.rmSync(`${tempPath}/${path}`, { recursive: true }))
     // 重置变量
     isHaveMarkdownArticle = null
     name = null
