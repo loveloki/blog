@@ -19,7 +19,9 @@ let title = null
 let description = null
 
 // 首页的文章列表
-const catalog = []
+
+const oldCatalog = fs.readFileSync('./build/catalog.json')
+const catalog = JSON.parse(oldCatalog.toString()) || []
 
 // 添加文件在 temp 文件夹
 // 标题和简介配置在 cfg 文件中
@@ -110,7 +112,7 @@ function buildArticle() {
     month,
   }
 
-  catalog.push(item)
+  catalog.unshift(item)
 
   try {
     fs.writeFileSync('./build/catalog.json', JSON.stringify(catalog))
