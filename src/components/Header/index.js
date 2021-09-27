@@ -1,17 +1,23 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './index.css'
+import Tabs from './Tabs'
 
 function Header(props) {
-  const location = useLocation()
+  const tabs = [
+    { label: '文章', value: 'home' },
+    { label: '最近阅读', value: 'read' },
+    { label: '关于', value: 'about' },
+  ]
+
+  let history = useHistory()
+
+  function handleClickTab(tab) {
+    history.push(`/${tab.value}`)
+  }
 
   return (
     <header className={props.className + ' flex justify-center items-center'}>
-      <Link to="/" replace={location.pathname === '/'}>
-        <span className="text-4xl cursor-pointer">
-          Xleine&lsquo;s
-          <sup className="">Blog</sup>
-        </span>
-      </Link>
+      <Tabs tabs={tabs} handleClickTab={handleClickTab} />
     </header>
   )
 }

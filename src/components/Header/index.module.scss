@@ -1,0 +1,20 @@
+.active {
+  font-size: 2rem;
+  color: var(--color-black);
+}
+
+.tabs {
+  font-size: 1.5rem;
+  color: var(--color-gray);
+  user-select: none;
+
+  a {
+    padding: 0.25rem;
+    @apply transition-colors;
+    // transition: font-size .2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -40,12 +40,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.15.7",
+    "@babel/preset-react": "^7.14.5",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.29.0",
-    "eslint-config-alloy": "^4.1.0",
-    "eslint-plugin-react": "^7.24.0",
+    "eslint": "^7.32.0",
+    "eslint-config-alloy": "^4.3.0",
+    "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "node-sass": "^6.0.1",
     "postcss": "^7.0.36",
     "prettier": "2.3.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"

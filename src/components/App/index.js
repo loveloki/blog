@@ -10,7 +10,7 @@ function App() {
       <Header className="h-16 flex-shrink-0" />
       <main className="relative flex-1 px-9 pb-5">
         <Switch>
-          <Route exact path="/">
+          <Route exact path={['/', '/home']}>
             <List />
           </Route>
           <Route path="/article">

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './index.css'
 
-export default function Nav(markdownContent) {
+export default function Nav({ selector, markdownContent }) {
   const [nav, setNav] = useState(null)
   const NavEl = useRef(null)
   const isClick = useRef(false)
@@ -32,7 +32,7 @@ export default function Nav(markdownContent) {
           NavEl.current.classList.remove('active')
         }
 
-        const headers = document.querySelector('.markdown-body').querySelectorAll('h2,h3,h4,h5,h6')
+        const headers = document.querySelector(`.${selector}`).querySelectorAll('h2,h3,h4,h5,h6')
         const currentTop = document.scrollingElement.scrollTop
 
         let selectedNode
@@ -72,7 +72,7 @@ export default function Nav(markdownContent) {
     }
 
     return () => window.removeEventListener('scroll', scrollingElement)
-  }, [])
+  }, [selector])
 
   useEffect(() => {
     if (!markdownContent) {
@@ -92,7 +92,7 @@ export default function Nav(markdownContent) {
       Node.classList.add('active')
     }
 
-    const headers = document.querySelector('.markdown-body').querySelectorAll('h2,h3,h4,h5,h6')
+    const headers = document.querySelector(`.${selector}`).querySelectorAll('h2,h3,h4,h5,h6')
     const nav = Array.prototype.map.call(headers, (Node) => (
       <li
         className={tag2className(Node.tagName) + ' whitespace-nowrap overflow-hidden overflow-ellipsis'}
@@ -107,7 +107,7 @@ export default function Nav(markdownContent) {
     setNav(nav)
 
     return () => {}
-  }, [markdownContent])
+  }, [markdownContent, selector])
 
   return (
     <nav ref={NavEl} className="fixed w-64 top-5 ml-11">

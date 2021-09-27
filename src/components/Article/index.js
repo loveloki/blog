@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import slug from 'remark-slug'
 import useCatalog from '../../hooks/catalog'
 import useDocumentTitle from '../../hooks/document-title'
-import './index.css'
+import styles from './index.module.scss'
 import Nav from './Nav'
 
 function Article() {
@@ -25,9 +25,9 @@ function Article() {
   return (
     <>
       <aside className="relative pl-full">
-        <Nav markdownContent={markdownContent} />
+        <Nav selector={styles['markdown-body']} markdownContent={markdownContent} />
       </aside>
-      <ReactMarkdown className="markdown-body" remarkPlugins={[slug]}>
+      <ReactMarkdown className={styles['markdown-body']} remarkPlugins={[slug]}>
         {markdownContent}
       </ReactMarkdown>
     </>
