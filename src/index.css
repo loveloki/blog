@@ -1,6 +1,21 @@
+@font-face {
+  font-family: 'DinkieBitmap-9px';
+  src: url('./fonts/DinkieBitmap-v1002/WOFF2/DinkieBitmap-9px.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DinkieBitmap-7px';
+  src: url('./fonts/DinkieBitmap-v1002/WOFF2/DinkieBitmap-7px.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DinkieBitmap-9pxCode';
+  src: url('./fonts/DinkieBitmap-v1002/WOFF2/DinkieBitmap-9pxCode.woff2') format('woff2');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'DinkieBitmap-9px', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,6 +23,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'DinkieBitmap-9pxCode', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
