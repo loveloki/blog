@@ -1,11 +1,13 @@
 import './Home.css'
+import About from './About'
+import Catalog from './Catalog'
 
 function Home() {
   return (
-    <main>
-      <h1>Hello Blog</h1>
-      <code>let author = &quot;Xleine&quot;</code>
-    </main>
+    <>
+      <Catalog />
+      <About />
+    </>
   )
 }
 
