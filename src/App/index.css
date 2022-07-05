@@ -4,5 +4,8 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.App article {
   font-size: 2rem;
 }
