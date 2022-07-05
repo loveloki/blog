@@ -1,0 +1,24 @@
+.catalog {
+  padding: 0.25rem;
+  text-align: left;
+}
+
+.catalog li {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.catalog li:hover {
+  color: var(--black-color);
+  background-color: var(--light-color);
+}
+
+.catalog li header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.catalog li header a {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
