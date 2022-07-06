@@ -3,10 +3,12 @@ import './index.css'
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
+      <aside>
+        <List />
+      </aside>
       <article>Xleine&#x27;s Blog</article>
-      <List />
-    </div>
+    </main>
   )
 }
 
