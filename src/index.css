@@ -21,7 +21,9 @@
 
 :root {
   --black-color: #282c34;
-  --light-color: #f8f8f2;
+  --cream-color: #d6d0c4;
+  --deep-blue-color: #4fa1e1;
+  --deep-red-color: #f16445;
 }
 
 body {
@@ -42,7 +44,7 @@ html,
 body,
 #root {
   height: 100%;
-  color: var(--light-color);
+  color: var(--cream-color);
   background-color: var(--black-color);
 }
 

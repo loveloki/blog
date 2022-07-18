@@ -10,7 +10,7 @@
 
 .catalog li:hover {
   color: var(--black-color);
-  background-color: var(--light-color);
+  background-color: var(--cream-color);
 }
 
 .catalog li header {
@@ -18,7 +18,20 @@
   justify-content: space-between;
 }
 
+.catalog li:hover header a {
+  color: #313131;
+}
+
 .catalog li header a {
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+.catalog li header a {
+  color: var(--deep-blue-color);
+  text-decoration: none;
+}
+
+.catalog li header a:hover {
+  box-shadow: inset 0 -0.3rem 0 var(--deep-red-color);
 }
