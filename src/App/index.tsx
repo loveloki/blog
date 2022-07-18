@@ -1,9 +1,11 @@
 import useFontsReady from '@hooks/useFontsReady'
 import List from './List/List'
 import './index.css'
+import useProcessor from './MarkDown'
 
 function App() {
   const isFontsReady = useFontsReady()
+  const mk = useProcessor()
 
   return (
     <main className="App">
@@ -12,7 +14,10 @@ function App() {
           <aside>
             <List />
           </aside>
-          <article>Xleine&#x27;s Blog</article>
+          <article>
+            <div>Xleine&#x27;s Blog</div>
+            <div style={{ height: '30%' }}>{mk}</div>
+          </article>
         </>
       ) : (
         <div className="font-loading">
