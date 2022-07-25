@@ -15,21 +15,21 @@
     "react-remark": "^2.1.0"
   },
   "devDependencies": {
-    "@types/node": "^18.0.3",
+    "@types/node": "^18.6.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.30.3",
-    "@typescript-eslint/parser": "^5.30.3",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
     "@vitejs/plugin-react": "^2.0.0",
-    "eslint": "^8.19.0",
-    "eslint-config-alloy": "^4.6.0",
+    "eslint": "^8.20.0",
+    "eslint-config-alloy": "^4.6.2",
     "eslint-plugin-react": "^7.30.1",
-    "@nabla/vite-plugin-eslint": "^1.4.0",
+    "@nabla/vite-plugin-eslint": "^1.4.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.0"
+    "vite": "^3.0.3"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
