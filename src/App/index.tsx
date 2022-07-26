@@ -3,6 +3,7 @@ import List from './List/List'
 import './index.css'
 import MarkDown from './MarkDown'
 import { Outlet, Route, Routes, useLocation } from 'react-router-dom'
+import Header from './Header'
 
 function App() {
   const isFontsReady = useFontsReady()
@@ -22,9 +23,10 @@ function App() {
                 <Route
                   path="article/:id"
                   element={
-                    <div style={{ height: '30%' }}>
+                    <>
+                      <Header />
                       <MarkDown />
-                    </div>
+                    </>
                   }
                 />
                 <Route path="*" element={<p>404!</p>} />
