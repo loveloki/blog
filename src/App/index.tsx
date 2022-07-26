@@ -2,10 +2,11 @@ import useFontsReady from '@hooks/useFontsReady'
 import List from './List/List'
 import './index.css'
 import MarkDown from './MarkDown'
-import { Outlet, Route, Routes } from 'react-router-dom'
+import { Outlet, Route, Routes, useLocation } from 'react-router-dom'
 
 function App() {
   const isFontsReady = useFontsReady()
+  const location = useLocation()
 
   return (
     <main className="App">
@@ -14,27 +15,22 @@ function App() {
           <aside>
             <List />
           </aside>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <article>
-                  <div>Xleine&#x27;s Blog</div>
-                  <Outlet />
-                </article>
-              }
-            >
-              <Route
-                path="article/:id"
-                element={
-                  <div style={{ height: '30%' }}>
-                    <MarkDown />
-                  </div>
-                }
-              />
-              <Route path="*" element={<p>404!</p>} />
-            </Route>
-          </Routes>
+          <article>
+            {location.pathname === '/' && <MarkDown />}
+            <Routes>
+              <Route path="/" element={<Outlet />}>
+                <Route
+                  path="article/:id"
+                  element={
+                    <div style={{ height: '30%' }}>
+                      <MarkDown />
+                    </div>
+                  }
+                />
+                <Route path="*" element={<p>404!</p>} />
+              </Route>
+            </Routes>
+          </article>
         </>
       ) : (
         <div className="font-loading">
