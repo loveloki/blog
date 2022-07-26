@@ -1,4 +1,4 @@
-const modules = import.meta.glob('./**/*.md', { as: 'raw' })
+const modules = import.meta.glob('/**/*.md', { as: 'raw' })
 const articles = new Map()
 
 for (const path in modules) {
