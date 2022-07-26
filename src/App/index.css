@@ -1,12 +1,14 @@
 .App {
-  height: 100vh;
+  max-width: 96rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
-  overflow: auto;
+  margin: 0 auto;
 }
 
 .App aside {
   position: sticky;
+  height: 100vh;
   top: 0;
   flex-basis: 30rem;
   min-width: 20rem;
