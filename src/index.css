@@ -43,9 +43,20 @@ code {
 html,
 body,
 #root {
-  height: 100%;
   color: var(--cream-color);
   background-color: var(--black-color);
+}
+
+:root {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+body {
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
 }
 
 ul,
