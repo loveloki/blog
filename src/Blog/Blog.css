@@ -3,7 +3,6 @@
   height: 100%;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 #Blog {
@@ -18,4 +17,14 @@
   grid-row: 1;
   font-size: 2rem;
   line-height: 64px;
+}
+
+#Blog > main {
+  margin: 0 auto;
+  max-width: 44rem;
+}
+
+pre {
+  padding: 0.5rem 1rem;
+  overflow: auto;
 }
