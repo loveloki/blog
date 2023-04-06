@@ -1,5 +1,6 @@
 import './Blog.css'
 import usePosts from '../hooks/usePosts'
+import { Link } from 'react-router-dom'
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function List() {
         return (
           <li className="list-item" key={name}>
             <header>
-              <a href="">{name}</a>
+              <Link key={name} to={'/post/' + name}>
+                {name}
+              </Link>
             </header>
             <div>{desc}</div>
             <footer>{tags.map(Tag)}</footer>
