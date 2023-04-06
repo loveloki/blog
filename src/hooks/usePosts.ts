@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 
 interface Post {
-  name: string,
-  desc: string,
+  id: string
+  title: string
+  desc: string
   tags: Array<string>
 }
 
@@ -15,7 +16,6 @@ const usePosts = () => {
     fetch(path)
       .then((res) => res.json())
       .then((json) => {
-        console.log({ json })
         setPosts(json)
       })
       .catch((e) => {

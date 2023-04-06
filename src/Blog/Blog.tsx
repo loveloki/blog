@@ -1,17 +1,24 @@
-import './Blog.css'
+import { Link, Outlet } from 'react-router-dom'
 import usePosts from '../hooks/usePosts'
-import { Link } from 'react-router-dom'
+import useIsHome from '../hooks/useIsHome'
+import './Blog.css'
 
 function App() {
   return (
     <div id="Blog">
       <header>a simple blog</header>
       <main>
-        <List />
+        <Content />
       </main>
       <aside>其他信息，放在侧边 比如阅读书籍，个人信息</aside>
     </div>
   )
+}
+
+function Content() {
+  const isHome = useIsHome()
+
+  return isHome ? <List /> : <Outlet />
 }
 
 function List() {
@@ -19,16 +26,18 @@ function List() {
 
   return (
     <ul>
-      {posts.map(({ name, desc, tags }) => {
+      {posts.map(({ id, title, desc, tags }) => {
         return (
-          <li className="list-item" key={name}>
+          <li className="list-item" key={id}>
             <header>
-              <Link key={name} to={'/post/' + name}>
-                {name}
-              </Link>
+              <Link to={'/posts/' + id}>{title}</Link>
             </header>
             <div>{desc}</div>
-            <footer>{tags.map(Tag)}</footer>
+            <footer>
+              {tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </footer>
           </li>
         )
       })}
@@ -36,7 +45,7 @@ function List() {
   )
 }
 
-function Tag(text: string) {
+function Tag({ text }: { text: string }) {
   return <i className="tag">{text}</i>
 }
 

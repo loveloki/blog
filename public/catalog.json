@@ -1,6 +1,7 @@
 [
   {
-    "name": "构建LibreOffice",
+    "id": "build-LibreOffice",
+    "title": "构建LibreOffice",
     "desc": "使用Visual Studio 2022构建LibreOffice7.5.0.1",
     "tags": ["LibreOffice", "构建", "教程"]
   }
