@@ -28,3 +28,21 @@ pre {
   padding: 0.5rem 1rem;
   overflow: auto;
 }
+
+ol,
+ul {
+  list-style: none;
+}
+
+.tag {
+  font-size: smaller;
+  cursor: pointer;
+}
+
+.tag + .tag {
+  margin-left: 4px;
+}
+
+.list-item > header {
+  font-size: 1.5rem;
+}

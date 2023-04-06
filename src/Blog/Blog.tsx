@@ -1,23 +1,40 @@
-import Post from './Post'
 import './Blog.css'
 import usePosts from '../hooks/usePosts'
 
 function App() {
-  const posts = usePosts()
-
   return (
     <div id="Blog">
       <header>a simple blog</header>
       <main>
-        文章列表
-        {posts.length &&
-          posts.map(({ name }) => {
-            return <Post key={name} name={name} />
-          })}
+        <List />
       </main>
       <aside>其他信息，放在侧边 比如阅读书籍，个人信息</aside>
     </div>
   )
+}
+
+function List() {
+  const posts = usePosts()
+
+  return (
+    <ul>
+      {posts.map(({ name, desc, tags }) => {
+        return (
+          <li className="list-item" key={name}>
+            <header>
+              <a href="">{name}</a>
+            </header>
+            <div>{desc}</div>
+            <footer>{tags.map(Tag)}</footer>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+function Tag(text: string) {
+  return <i className="tag">{text}</i>
 }
 
 export default App

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
 interface Post {
-  name: String
-  desc: String
-  tags: Array<String>
+  name: string,
+  desc: string,
+  tags: Array<string>
 }
 
 const path = '/catalog.json'
