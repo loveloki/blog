@@ -1,0 +1,13 @@
+#Blog[data-theme='ayu-light'] {
+  --ui-line: #6b7d8f1f;
+  --ui-bg: #f8f9fa;
+  --ui-fg: #8a9199;
+  --ui-selection-active: #56728f1f;
+  --ui-selection-normal: #6b7d8f1f;
+  --ui-panel-bg: #f3f4f5;
+  --ui-panel-shadow: #00000026;
+  --common-accent: #fa3;
+  --common-error: #e65050;
+  --editor-selection-active: #035bd626;
+  --editor-selection-inactive: #035bd612;
+}

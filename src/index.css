@@ -23,3 +23,7 @@ html,
 body {
   height: 100%;
 }
+
+::selection {
+  background-color: var(--editor-selection-active);
+}

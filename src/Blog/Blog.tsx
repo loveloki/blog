@@ -4,8 +4,10 @@ import useIsHome from '../hooks/useIsHome'
 import './Blog.css'
 
 function App() {
+  const theme = 'ayu-light'
+
   return (
-    <div id="Blog">
+    <div id="Blog" data-theme={theme}>
       <Header />
       <main>
         <Content />
