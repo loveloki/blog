@@ -1,7 +1,8 @@
-import { Link, Outlet, useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 import usePosts from '../hooks/usePosts'
 import useIsHome from '../hooks/useIsHome'
 import './Blog.css'
+import List from './List'
 
 function App() {
   const theme = 'ayu-light'
@@ -33,34 +34,6 @@ function Content() {
   const isHome = useIsHome()
 
   return isHome ? <List /> : <Outlet />
-}
-
-function List() {
-  const posts = usePosts()
-
-  return (
-    <ul>
-      {posts.map(({ id, title, desc, tags }) => {
-        return (
-          <li className="list-item" key={id}>
-            <header>
-              <Link to={'/posts/' + id}>{title}</Link>
-            </header>
-            <div>{desc}</div>
-            <footer>
-              {tags.map((tag) => (
-                <Tag key={tag} text={tag} />
-              ))}
-            </footer>
-          </li>
-        )
-      })}
-    </ul>
-  )
-}
-
-function Tag({ text }: { text: string }) {
-  return <i className="tag">{text}</i>
 }
 
 export default App

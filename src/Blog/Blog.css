@@ -31,15 +31,6 @@
   max-width: 44rem;
 }
 
-#Blog > main .list-item {
-  transition: all 0.2s ease-in;
-  padding: 8px;
-}
-
-#Blog > main .list-item:hover {
-  background-color: var(--ui-selection-normal);
-}
-
 pre {
   padding: 0.5rem 1rem;
   overflow: auto;
@@ -57,10 +48,6 @@ ul {
 
 .tag + .tag {
   margin-left: 4px;
-}
-
-.list-item > header {
-  font-size: 1.5rem;
 }
 
 a {
