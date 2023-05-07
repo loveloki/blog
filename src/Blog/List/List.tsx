@@ -2,23 +2,34 @@ import { Link } from 'react-router-dom'
 import usePosts from '@hooks/usePosts'
 import './List.css'
 
-function List() {
+interface ListProps {
+  isHome: boolean
+  activeId: string | undefined
+}
+
+function List({ isHome, activeId }: ListProps) {
   const posts = usePosts()
+  const type = isHome ? 'full' : 'tiny'
+  const className = `post-list ${type}`
 
   return (
-    <ul>
+    <ul className={className}>
       {posts.map(({ id, title, desc, tags }) => {
+        const className = activeId === id ? 'list-item active' : 'list-item'
+
         return (
-          <li className="list-item" key={id}>
+          <li className={className} key={id}>
             <header>
               <Link to={'/posts/' + id}>{title}</Link>
             </header>
             <div>{desc}</div>
-            <footer>
-              {tags.map((tag) => (
-                <Tag key={tag} text={tag} />
-              ))}
-            </footer>
+            {type === 'full' && (
+              <footer>
+                {tags.map((tag) => (
+                  <Tag key={tag} text={tag} />
+                ))}
+              </footer>
+            )}
           </li>
         )
       })}

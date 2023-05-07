@@ -1,39 +1,26 @@
 import { Outlet, useParams } from 'react-router-dom'
-import usePosts from '@hooks/usePosts'
+import usePosts, { Post } from '@hooks/usePosts'
 import useIsHome from '@hooks/useIsHome'
-import './Blog.css'
 import List from './List'
+import './Blog.css'
 
 function App() {
   const theme = 'ayu-light'
+  const isHome = useIsHome()
+  const posts = usePosts()
+  const param = useParams()
+  const activePost = posts.find(({ id }) => id === param.id)
 
   return (
     <div id="Blog" data-theme={theme}>
-      <Header />
+      <header>{activePost?.title || 'a simple blog'}</header>
       <main>
-        <Content />
+        <List isHome={isHome} activeId={activePost?.id} />
+        <Outlet />
       </main>
       <aside>其他信息，放在侧边 比如阅读书籍，个人信息</aside>
     </div>
   )
-}
-
-function Header() {
-  const isHome = useIsHome()
-  const posts = usePosts()
-  const param = useParams()
-
-  const title = isHome
-    ? 'a simple blog'
-    : posts.find(({ id }) => id === param.id)?.title
-
-  return <header>{title}</header>
-}
-
-function Content() {
-  const isHome = useIsHome()
-
-  return isHome ? <List /> : <Outlet />
 }
 
 export default App

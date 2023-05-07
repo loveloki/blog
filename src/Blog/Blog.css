@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
   height: 100%;
-  margin: 0 auto;
 }
 
 #Blog {
@@ -27,7 +25,12 @@
 }
 
 #Blog > main {
+  display: flex;
+  gap: 8px;
   margin: 0 auto;
+}
+
+#Blog > main > article {
   max-width: 44rem;
 }
 
@@ -39,6 +42,7 @@ pre {
 ol,
 ul {
   list-style: none;
+  padding: 0;
 }
 
 .tag {
