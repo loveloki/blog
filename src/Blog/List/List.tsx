@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import usePosts from '../../hooks/usePosts'
+import usePosts from '@hooks/usePosts'
 import './List.css'
 
 function List() {

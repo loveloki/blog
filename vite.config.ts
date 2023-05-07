@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
+      '@hooks': resolve(__dirname, './src/hooks'),
     },
   },
 })

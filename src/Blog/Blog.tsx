@@ -1,6 +1,6 @@
 import { Outlet, useParams } from 'react-router-dom'
-import usePosts from '../hooks/usePosts'
-import useIsHome from '../hooks/useIsHome'
+import usePosts from '@hooks/usePosts'
+import useIsHome from '@hooks/useIsHome'
 import './Blog.css'
 import List from './List'
 
