@@ -13,27 +13,30 @@ function List({ isHome, activeId }: ListProps) {
   const className = `post-list ${type}`
 
   return (
-    <ul className={className}>
-      {posts.map(({ id, title, desc, tags }) => {
-        const className = activeId === id ? 'list-item active' : 'list-item'
+    <nav className={className}>
+      <ul>
+        {posts.map(({ id, title, desc, tags }) => {
+          const className = activeId === id ? 'list-item active' : 'list-item'
 
-        return (
-          <li className={className} key={id}>
-            <header>
-              <Link to={'/posts/' + id}>{title}</Link>
-            </header>
-            <div>{desc}</div>
-            {type === 'full' && (
-              <footer>
-                {tags.map((tag) => (
-                  <Tag key={tag} text={tag} />
-                ))}
-              </footer>
-            )}
-          </li>
-        )
-      })}
-    </ul>
+          return (
+            <li className={className} key={id}>
+              <header>
+                <Link to={'/posts/' + id}>{title}</Link>
+              </header>
+              <div>{desc}</div>
+              {type === 'full' && (
+                <footer>
+                  {tags.map((tag) => (
+                    <Tag key={tag} text={tag} />
+                  ))}
+                </footer>
+              )}
+            </li>
+          )
+        })}
+      </ul>
+
+    </nav>
   )
 }
 

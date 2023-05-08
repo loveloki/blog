@@ -1,5 +1,5 @@
 import { Outlet, useParams } from 'react-router-dom'
-import usePosts, { Post } from '@hooks/usePosts'
+import usePosts from '@hooks/usePosts'
 import useIsHome from '@hooks/useIsHome'
 import List from './List'
 import './Blog.css'
@@ -17,8 +17,8 @@ function App() {
       <main>
         <List isHome={isHome} activeId={activePost?.id} />
         <Outlet />
+        <aside>侧边栏，放置目录等辅助内容</aside>
       </main>
-      <aside>其他信息，放在侧边 比如阅读书籍，个人信息</aside>
     </div>
   )
 }

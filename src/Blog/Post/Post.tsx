@@ -10,7 +10,7 @@ marked.use({
 function Post() {
   const text = useLoaderData() as string
 
-  return <article dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
+  return <article className='post-body' dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
 }
 
 export default Post
