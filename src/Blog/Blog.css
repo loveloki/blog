@@ -1,33 +1,36 @@
 #root {
-  height: 100%;
+  min-height: 100vh;
+  min-width: 1536px;
 }
 
-#Blog {
-  height: 100%;
+#blog {
+  min-height: 100vh;
   padding: 2rem;
   color: var(--ui-fg);
   background: var(--ui-bg);
 }
 
-#Blog > header {
+#blog > header {
   font-size: 2rem;
   line-height: 64px;
   border-bottom: 1px solid var(--ui-line);
 }
 
-#Blog aside {
-  width: 22rem;
+#blog aside {
+  flex-shrink: 0;
+  width: 20rem;
   padding: 16px;
   background: var(--ui-panel-bg);
 }
 
-#Blog > main {
+#blog > main {
   display: flex;
   gap: 16px;
   justify-content: center;
+  margin-top: 16px;
 }
 
-#Blog > main > article {
+#blog > main > article {
   max-width: 56rem;
 }
 

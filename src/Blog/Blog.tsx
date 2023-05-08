@@ -12,7 +12,7 @@ function App() {
   const activePost = posts.find(({ id }) => id === param.id)
 
   return (
-    <div id="Blog" data-theme={theme}>
+    <div id="blog" data-theme={theme}>
       <header>{activePost?.title || 'a simple blog'}</header>
       <main>
         <List isHome={isHome} activeId={activePost?.id} />
