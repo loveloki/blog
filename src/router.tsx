@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Blog from './Blog'
 import Post from './Blog/Post'
+import Snippet from './Blog/Snippet/Snippet';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,15 @@ const router = createBrowserRouter([
         },
       },
     ],
+  },
+  {
+    path: '/snippets/:id',
+    element: <Snippet />,
+    loader: async ({ params }) => {
+      const text = await (await fetch(`/snippets/${params.id}.md`)).text()
+
+      return text
+    },
   },
 ])
 
