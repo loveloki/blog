@@ -5,6 +5,7 @@ import router from './router'
 import useTheme from '@hooks/useTheme'
 import './index.css'
 import './theme.css'
+import './experience.css'
 
 // 初始化主题
 useTheme('ayu-light')
