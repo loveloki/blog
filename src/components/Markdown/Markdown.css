@@ -1,0 +1,25 @@
+.code-box {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--editor-bg);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0;
+  border: 1px solid var(--ui-fg);
+}
+
+
+.copy-btn > svg {
+  margin: 8px;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.copy-btn:hover {
+  background: var(--ui-bg);
+}

@@ -1,10 +1,5 @@
-import { marked } from 'marked'
+import Markdown from '@/components/Markdown/Markdown'
 import { useLoaderData } from 'react-router-dom'
-
-marked.use({
-  mangle: false,
-  headerIds: false,
-})
 
 function Snippet() {
   const text = useLoaderData() as string || 'not this snippet!'
@@ -12,8 +7,9 @@ function Snippet() {
   return (
     <article
       className="post-body"
-      dangerouslySetInnerHTML={{ __html: marked.parse(text) }}
-    />
+    >
+      <Markdown text={text} />
+    </article>
   )
 }
 

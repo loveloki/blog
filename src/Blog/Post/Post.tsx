@@ -1,16 +1,13 @@
 import { useLoaderData } from 'react-router-dom'
-import { marked } from 'marked'
+import Markdown from '@/components/Markdown/Markdown'
 import './Post.css'
-
-marked.use({
-  mangle: false,
-  headerIds: false,
-});
 
 function Post() {
   const text = useLoaderData() as string
 
-  return <article className='post-body' dangerouslySetInnerHTML={{ __html: marked.parse(text) }} />
+  return <article className='post-body'>
+    <Markdown text={text} />
+  </article>
 }
 
 export default Post

@@ -37,6 +37,8 @@
 pre {
   padding: 0.5rem 1rem;
   overflow: auto;
+  background: var(--editor-bg);
+  border-radius: 5px;
 }
 
 ol,

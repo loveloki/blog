@@ -10,4 +10,7 @@ html[data-theme='ayu-light'] {
   --common-error: #e65050;
   --editor-selection-active: #035bd626;
   --editor-selection-inactive: #035bd612;
+  --editor-bg: #fcfcfc;
+  --editor-fg: #5c6166;
+  --editor-line: #8a91991a;
 }
