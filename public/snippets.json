@@ -1,0 +1,8 @@
+[
+  {
+    "id": "bun-simple-file-server",
+    "title": "使用 bun 搭建文件服务器",
+    "desc": "使用 bun 搭建一个简单的文件服务器",
+    "tags": ["bun", "文件服务器"]
+  }
+]

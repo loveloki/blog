@@ -1,41 +1,44 @@
 import { Link } from 'react-router-dom'
 import usePosts from '@hooks/usePosts'
 import './List.css'
+import useList, { ListItemType } from '@/hooks/useList'
 
 interface ListProps {
   isHome: boolean
   activeId: string | undefined
+  type: ListItemType
 }
 
-function List({ isHome, activeId }: ListProps) {
-  const posts = usePosts()
-  const type = isHome ? 'full' : 'tiny'
-  const className = `post-list ${type}`
+function List({ isHome, activeId, type }: ListProps) {
+  const posts = useList(type)
 
   return (
-    <nav className={className}>
+    <nav>
       <ul>
         {posts.map(({ id, title, desc, tags }) => {
           const className = activeId === id ? 'list-item active' : 'list-item'
 
           return (
             <li className={className} key={id}>
-              <header>
+              <header>{'{'}</header>
+              <div className='title'>
+                <span>title:</span>
                 <Link to={'/posts/' + id}>{title}</Link>
-              </header>
-              <div>{desc}</div>
-              {type === 'full' && (
-                <footer>
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
-                </footer>
-              )}
+              </div>
+              <div className='desc'>
+                <span>desc: </span>
+                {desc}</div>
+              <div className='tags'>
+                <span>tags:</span>
+                {tags.map((tag) => (
+                  <Tag key={tag} text={tag} />
+                ))}
+              </div>
+              <footer>{'}'}</footer>
             </li>
           )
         })}
       </ul>
-
     </nav>
   )
 }

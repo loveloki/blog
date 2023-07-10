@@ -24,13 +24,6 @@
 }
 
 #blog > main {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 16px;
-}
-
-#blog > main > article {
   max-width: 56rem;
 }
 
@@ -45,15 +38,6 @@ ol,
 ul {
   list-style: none;
   padding: 0;
-}
-
-.tag {
-  font-size: smaller;
-  cursor: pointer;
-}
-
-.tag + .tag {
-  margin-left: 4px;
 }
 
 a {

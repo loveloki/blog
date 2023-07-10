@@ -3,20 +3,26 @@ import usePosts from '@hooks/usePosts'
 import useIsHome from '@hooks/useIsHome'
 import List from './List'
 import './Blog.css'
+import { useState } from 'react'
+import useList, { ListItemType } from '@/hooks/useList'
+import Header from './Header'
 
 function App() {
+  const [type, setType] = useState<ListItemType>('posts')
   const isHome = useIsHome()
-  const posts = usePosts()
+  const posts = useList(type)
   const param = useParams()
-  const activePost = posts.find(({ id }) => id === param.id)
+  const activeItem = posts.find(({ id }) => id === param.id)
 
   return (
     <div id="blog">
-      <header>{activePost?.title || 'a simple blog'}</header>
+      <Header type={type} setType={setType} activeId={activeItem?.id} />
       <main>
-        <List isHome={isHome} activeId={activePost?.id} />
-        <Outlet />
-        <aside>侧边栏，放置目录等辅助内容</aside>
+        {isHome ? (
+          <List type={type} isHome={isHome} activeId={activeItem?.id} />
+        ) : (
+          <Outlet />
+        )}
       </main>
     </div>
   )
