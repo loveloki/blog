@@ -23,7 +23,7 @@ const useList = (type: ListItemType) => {
         console.warn(e)
         setItem([])
       })
-  }, [])
+  }, [path])
 
   return item
 }

@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
-import usePosts from '@hooks/usePosts'
-import './List.css'
 import useList, { ListItemType } from '@/hooks/useList'
+import './List.css'
 
 interface ListProps {
-  isHome: boolean
   activeId: string | undefined
   type: ListItemType
 }
 
-function List({ isHome, activeId, type }: ListProps) {
+function List({ activeId, type }: ListProps) {
   const posts = useList(type)
 
   return (
@@ -23,7 +21,7 @@ function List({ isHome, activeId, type }: ListProps) {
               <header>{'{'}</header>
               <div className='title'>
                 <span>title:</span>
-                <Link to={'/posts/' + id}>{title}</Link>
+                <Link to={'/' + type + '/' + id}>{title}</Link>
               </div>
               <div className='desc'>
                 <span>desc: </span>

@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 
 interface HeaderProps {
-  setType: Function
   type: ListItemType
   activeId?: string
 }
 
-function Header({ type, setType, activeId }: HeaderProps) {
+function Header({ type, activeId }: HeaderProps) {
   const list: ListItemType[] = ['snippets', 'posts']
   const lastList = list.filter((t) => t !== type)
 
@@ -18,7 +17,7 @@ function Header({ type, setType, activeId }: HeaderProps) {
       {activeId ? (
         <span>
           <span className="split">|</span>
-          <Link to="/">back</Link>
+          <Link to={"/" + type}>back</Link>
         </span>
       ) : (
         lastList.map((type) => {

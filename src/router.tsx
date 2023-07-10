@@ -17,17 +17,25 @@ const router = createBrowserRouter([
           return text
         },
       },
+      {
+        path: 'snippets/:id',
+        element: <Snippet />,
+        loader: async ({ params }) => {
+          const text = await (await fetch(`/snippets/${params.id}.md`)).text()
+
+          return text
+        },
+      },
     ],
   },
   {
-    path: '/snippets/:id',
-    element: <Snippet />,
-    loader: async ({ params }) => {
-      const text = await (await fetch(`/snippets/${params.id}.md`)).text()
-
-      return text
-    },
+      path: '/posts',
+      element: <Blog />,
   },
+  {
+    path: '/snippets',
+    element: <Blog />,
+}
 ])
 
 export default router
