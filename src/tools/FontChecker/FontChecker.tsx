@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import Select, { SingleValue } from 'react-select'
-import ReactJson from 'react-json-view'
+import JSONPretty from 'react-json-pretty-newlines';
 import './FontChecker.css'
 
 declare global {
   function queryLocalFonts(): Promise<Array<FontData>>;
 }
 
-type FontData = {
+interface FontData {
   family: string, fullName: string, postscriptName: string, style: string
 }
 
-type FontResult = {
+interface FontResult {
   value: string,
   label: string,
   info: FontData,
@@ -88,7 +88,7 @@ const FontChecker = () => {
       </div>
       <aside>
         <h2>字体信息</h2>
-        <ReactJson indentWidth={2} displayDataTypes={false} src={selectedOption || {}} />
+        <JSONPretty data={selectedOption} />
       </aside>
     </main>
   )
