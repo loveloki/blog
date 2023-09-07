@@ -11,8 +11,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-json-view": "^1.21.3",
     "react-markdown": "^8.0.7",
-    "react-router-dom": "^6.14.1"
+    "react-router-dom": "^6.14.1",
+    "react-select": "^5.7.4"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.5.0",

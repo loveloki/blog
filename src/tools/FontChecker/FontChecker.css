@@ -1,0 +1,78 @@
+#root:has(.font-checker) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-checker {
+  display: flex;
+  gap: 1rem;
+}
+
+.font-checker .left {
+  flex-basis: 700px;
+}
+
+.font-checker button {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: .5rem .75rem;
+  cursor: pointer;
+  background: #3b82f6;
+  border-radius: .375rem;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  font-family: "Microsoft Yahei";
+}
+
+.font-checker button:hover {
+  background: #3b82f6ce;
+}
+
+.font-checker aside {
+  height: 500px;
+  flex: 1;
+}
+
+.font-checker .left > p button {
+  margin-left: 1rem;
+}
+
+
+.preview {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.preview > div {
+    margin-top: .5rem;
+}
+
+.weight-100 {
+  font-weight: 100;
+}
+.weight-200 {
+  font-weight: 200;
+}
+.weight-300 {
+  font-weight: 300;
+}
+.weight-400 {
+  font-weight: 400;
+}
+.weight-500 {
+  font-weight: 500;
+}
+.weight-600 {
+  font-weight: 600;
+}
+.weight-700 {
+  font-weight: 700;
+}
+.weight-800 {
+  font-weight: 800;
+}
+.weight-900 {
+  font-weight: 900;
+}

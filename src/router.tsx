@@ -2,8 +2,13 @@ import { createBrowserRouter } from 'react-router-dom'
 import Blog from './Blog'
 import Post from './Blog/Post'
 import Snippet from './Blog/Snippet/Snippet';
+import FontChecker from './tools/FontChecker';
 
 const router = createBrowserRouter([
+  {
+    path: '/tools',
+    element: <FontChecker />,
+  },
   {
     path: '/',
     element: <Blog />,
