@@ -3,11 +3,16 @@ import Blog from './Blog'
 import Post from './Blog/Post'
 import Snippet from './Blog/Snippet/Snippet';
 import FontChecker from './tools/FontChecker';
+import WebContainer from './tools/WebContainer';
 
 const router = createBrowserRouter([
   {
     path: '/tools',
     element: <FontChecker />,
+  },
+  {
+    path: '/web-container',
+    element: <WebContainer />,
   },
   {
     path: '/',
