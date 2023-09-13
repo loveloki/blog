@@ -1,12 +1,7 @@
-#root:has(.font-checker) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .font-checker {
   display: flex;
   gap: 1rem;
+  padding: 4rem 1rem;
 }
 
 .font-checker .left {

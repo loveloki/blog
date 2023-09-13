@@ -1,18 +1,29 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Blog from './Blog'
 import Post from './Blog/Post'
-import Snippet from './Blog/Snippet/Snippet';
-import FontChecker from './tools/FontChecker';
-import WebContainer from './tools/WebContainer';
+import Snippet from './Blog/Snippet/Snippet'
+import FontChecker from './tools/FontChecker'
+import WebContainer from './tools/WebContainer'
+import Tools from './tools/Tools'
 
 const router = createBrowserRouter([
   {
     path: '/tools',
-    element: <FontChecker />,
-  },
-  {
-    path: '/web-container',
-    element: <WebContainer />,
+    element: <Tools />,
+    children: [
+      {
+        path: 'web-container',
+        element: <WebContainer />,
+      },
+      {
+        path: 'font-checker',
+        element: <FontChecker />,
+      },
+      {
+        path: '',
+        element: <FontChecker />,
+      },
+    ],
   },
   {
     path: '/',
@@ -39,13 +50,13 @@ const router = createBrowserRouter([
     ],
   },
   {
-      path: '/posts',
-      element: <Blog />,
+    path: '/posts',
+    element: <Blog />,
   },
   {
     path: '/snippets',
     element: <Blog />,
-}
+  },
 ])
 
 export default router

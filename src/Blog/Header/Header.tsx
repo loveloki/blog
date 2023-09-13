@@ -1,4 +1,4 @@
-import { ListItemType } from '@/hooks/useList'
+import type { ListItemType } from '@/hooks/useList'
 import { Link } from 'react-router-dom'
 import './Header.css'
 
@@ -8,7 +8,7 @@ interface HeaderProps {
 }
 
 function Header({ type, activeId }: HeaderProps) {
-  const list: ListItemType[] = ['snippets', 'posts']
+  const list: Array<ListItemType | 'tools'> = ['snippets', 'posts', 'tools']
   const lastList = list.filter((t) => t !== type)
 
   return (
@@ -17,7 +17,7 @@ function Header({ type, activeId }: HeaderProps) {
       {activeId ? (
         <span>
           <span className="split">|</span>
-          <Link to={"/" + type}>back</Link>
+          <Link to={'/' + type}>back</Link>
         </span>
       ) : (
         lastList.map((type) => {

@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom'
-import { ListItemType } from './useList'
+import type { ListItemType } from './useList'
 
 const useType = () => {
   const pathname = useLocation().pathname
@@ -19,7 +19,7 @@ const useType = () => {
       result = 'snippets'
       break
     default:
-      result = 'posts';
+      result = 'posts'
       console.warn('不存在的类型，返回主页')
   }
 
