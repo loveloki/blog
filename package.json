@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && npm run build-rss",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build-rss": "node rss/index.js"
   },
   "dependencies": {
     "@webcontainer/api": "^1.1.5",
