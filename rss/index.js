@@ -24,7 +24,7 @@ const blogs = [
  */
 // eslint-disable-next-line max-params
 function getItemXML(title, link, description, pubDate) {
-  const url = `/posts/${link}`
+  const url = `https://xleine.moe/posts/${link}`
   const time = new Date(pubDate).toUTCString()
 
   return `
@@ -55,7 +55,7 @@ const RSS = `<?xml version="1.0"?>
     <managingEditor>xleine@qq.com (Xleine)</managingEditor>
     <webMaster>sally.ride@example.com (Sally Ride)</webMaster>
     <copyright>Copyright 2023 Xleine</copyright>
-    <atom:link href="https://www.rssboard.org/files/sample-rss-2.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xleine.moe/xml.rss" rel="self" type="application/rss+xml" />
     ${list.join('\n')}
   </channel>
 </rss>`
